@@ -1,13 +1,10 @@
 require "sinatra"
+require "./lib/models.rb"
 
 get "/add" do
   erb(:add)
 end
 
 post "/calculate_add" do
-  first = params[:first_number].to_f
-  second = params[:second_number].to_f
-  result = first + second
-  "#{first} + #{second} = #{result}"
-  
+  Calculator.new.add_numbers(params[:first_number].to_i, params[:second_number].to_i)  
 end
