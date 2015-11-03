@@ -1,4 +1,5 @@
 require "sinatra"
+require 'pry'
 require_relative "./lib/models.rb"
 
 get "/add" do
@@ -21,34 +22,34 @@ get "/" do
   erb(:home)
 end
 
+
 post "/" do
   operation = params["operation"]
   case operation
   when "addition"
-    get "/calculate_add" do
-      Calculator.new.divide_numbers(params[:first_number].to_i, params[:second_number].to_i)
-    end
-
-    post "/calculate_add" do
-      Calculator.new.divide_numbers(params[:first_number].to_i, params[:second_number].to_i)
-    end
+    @string = Calculator.new.add_numbers(params[:first_number].to_i, params[:second_number].to_i)
+    erb(:final)
   when "subtraction"
-    redirect to("/calculate_subtract")
+    @string = Calculator.new.subtract_numbers(params[:first_number].to_i, params[:second_number].to_i)
+    erb(:final)
   when "multiplication"
-    redirect to("/calculate_multiply")
+    @string = Calculator.new.multiply_numbers(params[:first_number].to_i, params[:second_number].to_i)
+    erb(:final)
   when "division"
-    redirect to("/calculate_divide")
+    @string = Calculator.new.divide_numbers(params[:first_number].to_i, params[:second_number].to_i)
+    erb(:final)
   else
     "Nothing works!"
   end
 end
 
-
+=begin
 post "/calculate_divide" do 
   Calculator.new.divide_numbers(params[:first_number].to_i, params[:second_number].to_i)
 end
 
-post "/calculate_add" do
+get "/calculate_add/:first_number/:second_number" do
+  binding.pry
   Calculator.new.add_numbers(params[:first_number].to_i, params[:second_number].to_i)  
 end
 
@@ -59,5 +60,5 @@ end
 post "/calculate_multiply" do
   Calculator.new.multiply_numbers(params[:first_number].to_i, params[:second_number].to_i)
 end
-
+=end
 
