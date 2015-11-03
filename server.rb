@@ -9,5 +9,5 @@ post "/calculate_add" do
   second = params[:second_number].to_f
   result = first + second
   "#{first} + #{second} = #{result}"
-
+  
 end
