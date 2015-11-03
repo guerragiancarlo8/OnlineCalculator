@@ -37,6 +37,15 @@ get "/newyork" do
   erb(:timezone)
 end
 
+get "/numberlist" do
+  erb(:numlist)
+end
+
+post "/numberlist_final" do
+  @number = params["number"].to_i
+  erb(:numfinal)
+
+end
 post "/" do
   operation = params["operation"]
   case operation
