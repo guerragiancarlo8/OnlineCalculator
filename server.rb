@@ -1,7 +1,7 @@
 require "sinatra"
 require 'pry'
 require_relative "./lib/models.rb"
-
+=begin
 get "/add" do
   erb(:add)
 end
@@ -17,11 +17,25 @@ end
 get "/divide" do 
   erb(:divide)
 end
-
+=end
 get "/" do 
   erb(:home)
 end
 
+get "/moscow" do
+  @string = TimeZone.new.return_time "moscow"
+  erb(:timezone)
+end
+
+get "/tokyo" do
+  @string = TimeZone.new.return_time "tokyo"
+  erb(:timezone)
+end
+
+get "/newyork" do
+  @string = TimeZone.new.return_time "new york"
+  erb(:timezone)
+end
 
 post "/" do
   operation = params["operation"]
