@@ -1,5 +1,5 @@
 require "sinatra"
-require "./lib/models.rb"
+require_relative "./lib/models.rb"
 
 get "/add" do
   erb(:add)

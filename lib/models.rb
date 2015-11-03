@@ -4,22 +4,22 @@ class Calculator
 
   def add_numbers first_number, second_number
     result = first_number + second_number
-    puts "The addition of#{first_number} and #{second_number} is #{result}"
+    "The addition of #{first_number} and #{second_number} is #{result}"
   end
 
   def subtract_numbers first_number, second_number
     result = first_number - second_number
-    puts "The subtract of#{first_number} and #{second_number} is #{result}"
+    "The subtract of #{first_number} and #{second_number} is #{result}"
   end
 
   def multiply_numbers first_number, second_number
     result = first_number * second_number
-    puts "The multiplication of#{first_number} and #{second_number} is #{result}"
+    "The multiplication of #{first_number} and #{second_number} is #{result}"
   end
 
   def divide_numbers first_number, second_number
     result = first_number / second_number
-    puts "The division of#{first_number} and #{second_number} is #{result}"
+    "The division of #{first_number} and #{second_number} is #{result}"
   end
 
 end
