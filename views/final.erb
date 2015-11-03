@@ -1,1 +1,8 @@
+<h1> Results </h1>
+
 <%= @string %>
+
+<form action = '/write' method = "POST">
+	<button type="submit" name="saveToFile" value="<%=@string%>" >SAVE TO FILE</button>
+
+</form>

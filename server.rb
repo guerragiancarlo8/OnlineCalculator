@@ -43,6 +43,13 @@ post "/" do
   end
 end
 
+post "/write" do
+  string = params["saveToFile"]
+  puts string
+  open('./public/saves.txt','a') {|file| file.puts string}
+end
+
+
 =begin
 post "/calculate_divide" do 
   Calculator.new.divide_numbers(params[:first_number].to_i, params[:second_number].to_i)
